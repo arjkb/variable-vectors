@@ -23,15 +23,15 @@ void disp_vect(std::vector <int> v);
 void disp_map(std::map <Vertex, std::vector<int>> m);
 
 int main()  {
-
     int number_of_normals;
     int random_normal;
+    const int VERTEX_RANGE = 10;
     std::map <Vertex, std::vector<int>> vertex_normals;
     std::vector <int> normals_of_this_vertex;
 
     for(int i = 0; i < 20; i++) {
         // create a random vertex
-        Vertex vertex(rand() % 10, rand() % 10, rand() % 10);
+        Vertex vertex(rand() % VERTEX_RANGE, rand() % VERTEX_RANGE, rand() % VERTEX_RANGE);
         number_of_normals = 1 + rand() % 4; // [1, 4] faces can include this vertex
         
         for(int i = 0; i < number_of_normals; i++)  {
@@ -55,7 +55,6 @@ int main()  {
         printf("\n#%d --------------\n", i);
         disp_map(vertex_normals);
     }
-
     return 0;
 }
 
@@ -77,7 +76,6 @@ void disp_vect(std::vector <int> v) {
 
 void disp_map(std::map <Vertex, std::vector<int>> m)  {
     for(auto& x: m) {
-        // std::cout << x.first << " " << x.second << endl;
         std::cout << x.first << " -- " ; disp_vect(x.second); std::cout << std::endl;
     }
 }
