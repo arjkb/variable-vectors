@@ -17,12 +17,6 @@ class Vertex {
             this->y = y;
             this->z = z;
         }
-        ~Vertex()   {
-            this->x = 0;
-            this->y = 0;
-            this->z = 0;
-
-        }
         bool operator< (const Vertex& x) const;
         friend std::ostream& operator<< (std::ostream&, const Vertex&);
 };
