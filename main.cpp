@@ -25,26 +25,24 @@ void disp_vect(vector <int> v);
 void disp_map(map <Vertex, vector<int>> m);
 
 int main()  {
-    printf("hello!\n");
-    int number_of_normals = 3;
 
+    int number_of_normals;
+    int random_normal;
     map <Vertex, vector<int>> vertex_normals;
-    Vertex *vertex;
+    vector <int> normals_of_this_vertex;
+
     for(int i = 0; i < 20; i++) {
-        // float vertex = (rand() % 5);
+        // create a random vertex
         Vertex vertex(rand() % 10, rand() % 10, rand() % 10);
-
         number_of_normals = 1 + rand() % 4; // [1, 4] faces can include this vertex
-        vector <int> normals_of_this_vertex;
-
+        
         for(int i = 0; i < number_of_normals; i++)  {
-            int random_normal = rand() % 100;
+            random_normal = rand() % 100;
             normals_of_this_vertex.push_back(random_normal);
         }
 
         if (vertex_normals.find(vertex) != vertex_normals.end())    {
             // a vector of normals for current vertex already exists; extend.
-            // printf("\n vertex %lf exists!", vertex);
             printf("\n vertex exists!");
             vertex_normals[vertex].insert(  vertex_normals[vertex].end(), 
                                             normals_of_this_vertex.begin(), 
@@ -54,7 +52,7 @@ int main()  {
             vertex_normals[vertex] = normals_of_this_vertex;
         }
 
-        normals_of_this_vertex.clear();
+        normals_of_this_vertex.clear(); // clear the normals
 
         printf("\n#%d --------------\n", i);
         disp_map(vertex_normals);
