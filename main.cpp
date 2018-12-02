@@ -3,8 +3,6 @@
 #include <map>
 #include <cstdlib>
 
-using namespace std;
-
 class Vertex {
     private:    
         int x;
@@ -21,15 +19,15 @@ class Vertex {
         friend std::ostream& operator<< (std::ostream&, const Vertex&);
 };
 
-void disp_vect(vector <int> v);
-void disp_map(map <Vertex, vector<int>> m);
+void disp_vect(std::vector <int> v);
+void disp_map(std::map <Vertex, std::vector<int>> m);
 
 int main()  {
 
     int number_of_normals;
     int random_normal;
-    map <Vertex, vector<int>> vertex_normals;
-    vector <int> normals_of_this_vertex;
+    std::map <Vertex, std::vector<int>> vertex_normals;
+    std::vector <int> normals_of_this_vertex;
 
     for(int i = 0; i < 20; i++) {
         // create a random vertex
@@ -71,15 +69,15 @@ std::ostream& operator<< (std::ostream& out, const Vertex& v)  {
     return out << " (" << v.x << ", " << v.y << ", " << v.z << ") ";
 }
 
-void disp_vect(vector <int> v) {
+void disp_vect(std::vector <int> v) {
     for(auto i = v.begin(); i != v.end(); i++)   {
-        cout << *i <<  " ";
+        std::cout << *i <<  " ";
     }
 }
 
-void disp_map(map <Vertex, vector<int>> m)  {
+void disp_map(std::map <Vertex, std::vector<int>> m)  {
     for(auto& x: m) {
-        // cout << x.first << " " << x.second << endl;
-        cout << x.first << " -- " ; disp_vect(x.second); cout << endl;
+        // std::cout << x.first << " " << x.second << endl;
+        std::cout << x.first << " -- " ; disp_vect(x.second); std::cout << std::endl;
     }
 }
