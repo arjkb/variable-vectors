@@ -35,7 +35,7 @@ int main()  {
     int number_of_normals = 3;
 
     map <Vertex, vector<int>> vertex_normals;
-
+    Vertex *vertex;
     for(int i = 0; i < 20; i++) {
         // float vertex = (rand() % 5);
         Vertex vertex(rand() % 10, rand() % 10, rand() % 10);
@@ -51,10 +51,12 @@ int main()  {
         if (vertex_normals.find(vertex) != vertex_normals.end())    {
             // a vector of normals for current vertex already exists; extend.
             // printf("\n vertex %lf exists!", vertex);
+            printf("\n vertex exists!");
             vertex_normals[vertex].insert(  vertex_normals[vertex].end(), 
                                             normals_of_this_vertex.begin(), 
                                             normals_of_this_vertex.end());
         } else  {
+            printf("\n vertex does not exist!");
             vertex_normals[vertex] = normals_of_this_vertex;
         }
 
@@ -70,7 +72,7 @@ int main()  {
 // function definitions:
 
 bool Vertex::operator< (const Vertex& v) const  {
-    return (x < v.x) && (y < v.y) && (z < v.z);
+    return x < v.x;
 }
 
 std::ostream& operator<< (std::ostream& out, const Vertex& v)  {
