@@ -17,4 +17,4 @@ class Vertex {
         friend std::ostream& operator<< (std::ostream&, const Vertex&);
 };
 
-#endif VERTEX_HPP
+#endif
