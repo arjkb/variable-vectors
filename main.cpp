@@ -60,14 +60,6 @@ int main()  {
 
 // function definitions:
 
-bool Vertex::operator< (const Vertex& v) const  {
-    return x < v.x;
-}
-
-std::ostream& operator<< (std::ostream& out, const Vertex& v)  {
-    return out << " (" << v.x << ", " << v.y << ", " << v.z << ") ";
-}
-
 void disp_vect(std::vector <int> v) {
     for(auto i = v.begin(); i != v.end(); i++)   {
         std::cout << *i <<  " ";
